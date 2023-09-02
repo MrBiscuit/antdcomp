@@ -36,9 +36,10 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio"; // plasmic-import: PZQhrvIGy1/codeComponent
-import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio"; // plasmic-import: -CXVV9tXtP/codeComponent
+import ListItem from "../../ListItem"; // plasmic-import: KSlN7_uDUOFX/component
 import Comp from "../../Comp"; // plasmic-import: OliqYognCxZh/component
+
+import { useScreenVariants as useScreenVariants_92Lg6K3RJGs } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: _92lg6k3rJGs/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -59,7 +60,9 @@ export const PlasmicHome__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHome__OverridesType = {
   root?: p.Flex<"div">;
-  radioGroup?: p.Flex<typeof AntdRadioGroup>;
+  freeBox?: p.Flex<"div">;
+  listOfComps?: p.Flex<"div">;
+  listItem?: p.Flex<typeof ListItem>;
   comp?: p.Flex<typeof Comp>;
 };
 
@@ -339,7 +342,7 @@ function PlasmicHome__RenderFunc(props: {
         })
       },
       {
-        path: "radioGroup.value",
+        path: "currentComp",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "button" as const
@@ -352,6 +355,10 @@ function PlasmicHome__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_92Lg6K3RJGs()
   });
 
   return (
@@ -380,105 +387,196 @@ function PlasmicHome__RenderFunc(props: {
             sty.root
           )}
         >
-          <AntdRadioGroup
-            data-plasmic-name={"radioGroup"}
-            data-plasmic-override={overrides.radioGroup}
-            className={classNames("__wab_instance", sty.radioGroup)}
-            defaultValue={"button" as const}
-            onChange={p.generateStateOnChangeProp($state, [
-              "radioGroup",
-              "value"
-            ])}
-            optionType={"button" as const}
-            options={(() => {
-              try {
-                return Object.keys($state.data);
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return (() => {
-                    const __composite = [
-                      { value: null, label: null },
-                      { value: null, label: null }
-                    ];
-                    __composite["0"]["value"] = "button";
-                    __composite["0"]["label"] = "Button";
-                    __composite["1"]["value"] = "avatar";
-                    __composite["1"]["label"] = "Avatar";
-                    return __composite;
-                  })();
-                }
-                throw e;
-              }
-            })()}
-            value={p.generateStateValueProp($state, ["radioGroup", "value"])}
-          >
-            <AntdRadio
-              className={classNames("__wab_instance", sty.radio__lsp2B)}
-              value={"op1" as const}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oYky
-                )}
-              >
-                {"Option 1"}
-              </div>
-            </AntdRadio>
-            <AntdRadio
-              className={classNames("__wab_instance", sty.radio__mAj8M)}
-              value={"op2" as const}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zltNe
-                )}
-              >
-                {"Option 2"}
-              </div>
-            </AntdRadio>
-          </AntdRadioGroup>
           {true ? (
-            <Comp
-              data-plasmic-name={"comp"}
-              data-plasmic-override={overrides.comp}
-              className={classNames("__wab_instance", sty.comp)}
-              component={(() => {
-                try {
-                  return (() => {
-                    if ($state.radioGroup.value === "switch") return "_switch";
-                    else return $state.radioGroup.value;
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()}
-              data={(() => {
-                try {
-                  return $state.data[$state.radioGroup.value];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
+            <div
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
+            >
+              <div
+                data-plasmic-name={"listOfComps"}
+                data-plasmic-override={overrides.listOfComps}
+                className={classNames(projectcss.all, sty.listOfComps)}
+              >
+                {(
+                  (() => {
+                    try {
+                      return Object.keys($state.data);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })() ?? []
+                ).map((currentItem, currentIndex) => (
+                  <ListItem
+                    data-plasmic-name={"listItem"}
+                    data-plasmic-override={overrides.listItem}
+                    className={classNames("__wab_instance", sty.listItem)}
+                    current={(() => {
+                      try {
+                        return currentItem === $state.currentComp;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    key={currentIndex}
+                    label={(() => {
+                      try {
+                        return (() => {
+                          return currentItem
+                            .replace(
+                              /(?:^\w|[A-Z]|\b\w)/g,
+                              function (word, index) {
+                                return word.toUpperCase();
+                              }
+                            )
+                            .replace(/\s+/g, "");
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onClick={async event => {
+                      const $steps = {};
+                      $steps["updateCurrentComp"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: __wrapUserFunction(
+                                {
+                                  type: "InteractionArgLoc",
+                                  actionName: "updateVariable",
+                                  interactionUuid: "pS2AsALNJWMK",
+                                  componentUuid: "qfSkZIbsj2Nv",
+                                  argName: "variable"
+                                },
+                                () => ({
+                                  objRoot: $state,
+                                  variablePath: ["currentComp"]
+                                })
+                              ),
+                              operation: __wrapUserFunction(
+                                {
+                                  type: "InteractionArgLoc",
+                                  actionName: "updateVariable",
+                                  interactionUuid: "pS2AsALNJWMK",
+                                  componentUuid: "qfSkZIbsj2Nv",
+                                  argName: "operation"
+                                },
+                                () => 0
+                              ),
+                              value: __wrapUserFunction(
+                                {
+                                  type: "InteractionArgLoc",
+                                  actionName: "updateVariable",
+                                  interactionUuid: "pS2AsALNJWMK",
+                                  componentUuid: "qfSkZIbsj2Nv",
+                                  argName: "value"
+                                },
+                                () => currentItem
+                              )
+                            };
+                            return __wrapUserFunction(
+                              {
+                                type: "InteractionLoc",
+                                actionName: "updateVariable",
+                                interactionUuid: "pS2AsALNJWMK",
+                                componentUuid: "qfSkZIbsj2Nv"
+                              },
+                              () =>
+                                (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  p.set(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]),
+                              actionArgs
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        typeof $steps["updateCurrentComp"] === "object" &&
+                        typeof $steps["updateCurrentComp"].then === "function"
+                      ) {
+                        $steps["updateCurrentComp"] = await __wrapUserPromise(
+                          {
+                            type: "InteractionLoc",
+                            actionName: "updateVariable",
+                            interactionUuid: "pS2AsALNJWMK",
+                            componentUuid: "qfSkZIbsj2Nv"
+                          },
+                          $steps["updateCurrentComp"]
+                        );
+                      }
+                    }}
+                  />
+                ))}
+              </div>
+              {true ? (
+                <Comp
+                  data-plasmic-name={"comp"}
+                  data-plasmic-override={overrides.comp}
+                  className={classNames("__wab_instance", sty.comp)}
+                  component={(() => {
+                    try {
+                      return (() => {
+                        let c = $state.currentComp;
+                        if (c === "switch") {
+                          return "_switch";
+                        } else {
+                          return c;
+                        }
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  data={(() => {
+                    try {
+                      return $state.data[$state.currentComp];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              ) : null}
+            </div>
           ) : null}
         </div>
       </div>
@@ -487,8 +585,10 @@ function PlasmicHome__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "radioGroup", "comp"],
-  radioGroup: ["radioGroup"],
+  root: ["root", "freeBox", "listOfComps", "listItem", "comp"],
+  freeBox: ["freeBox", "listOfComps", "listItem", "comp"],
+  listOfComps: ["listOfComps", "listItem"],
+  listItem: ["listItem"],
   comp: ["comp"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -496,7 +596,9 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  radioGroup: typeof AntdRadioGroup;
+  freeBox: "div";
+  listOfComps: "div";
+  listItem: typeof ListItem;
   comp: typeof Comp;
 };
 
@@ -560,7 +662,9 @@ export const PlasmicHome = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    radioGroup: makeNodeComponent("radioGroup"),
+    freeBox: makeNodeComponent("freeBox"),
+    listOfComps: makeNodeComponent("listOfComps"),
+    listItem: makeNodeComponent("listItem"),
     comp: makeNodeComponent("comp"),
 
     // Metadata about props expected for PlasmicHome

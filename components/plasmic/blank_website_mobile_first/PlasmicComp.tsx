@@ -46,6 +46,8 @@ import { Divider } from "antd"; // plasmic-import: EFbBT2lZVjKE/codeComponent
 import { Breadcrumb } from "antd"; // plasmic-import: 9SbWfVpqJCVx/codeComponent
 import { Alert } from "antd"; // plasmic-import: obn1ze3KDtRX/codeComponent
 
+import { useScreenVariants as useScreenVariants_92Lg6K3RJGs } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: _92lg6k3rJGs/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -275,6 +277,10 @@ function PlasmicComp__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_92Lg6K3RJGs()
+  });
+
   return (
     true ? (
       <div
@@ -314,276 +320,291 @@ function PlasmicComp__RenderFunc(props: {
           }
         )}
       >
-        {true ? (
-          <div
-            className={classNames(projectcss.all, sty.freeBox__h2RdH, {
-              [sty.freeBoxcomponent__switch__h2RdH6Unwa]: hasVariant(
-                $state,
-                "component",
-                "_switch"
-              ),
-              [sty.freeBoxcomponent_avatar__h2RdHx9J7I]: hasVariant(
-                $state,
-                "component",
-                "avatar"
-              ),
-              [sty.freeBoxcomponent_button__h2RdHbEp92]: hasVariant(
-                $state,
-                "component",
-                "button"
-              )
-            })}
-          >
-            {true
-              ? (
-                  (() => {
-                    try {
-                      return $props.data;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
+        <div
+          className={classNames(projectcss.all, sty.freeBox__jxqXv, {
+            [sty.freeBoxcomponent__switch__jxqXv6Unwa]: hasVariant(
+              $state,
+              "component",
+              "_switch"
+            ),
+            [sty.freeBoxcomponent_checkbox__jxqXviwRen]: hasVariant(
+              $state,
+              "component",
+              "checkbox"
+            )
+          })}
+        >
+          {true
+            ? (
+                (() => {
+                  try {
+                    return $props.data;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
                     }
-                  })() ?? []
-                ).map((currentItem, currentIndex) => (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__dYgeh, {
-                      [sty.freeBoxcomponent__switch__dYgeh6Unwa]: hasVariant(
-                        $state,
-                        "component",
-                        "_switch"
-                      ),
-                      [sty.freeBoxcomponent_button__dYgehBEp92]: hasVariant(
-                        $state,
-                        "component",
-                        "button"
-                      )
-                    })}
-                    key={currentIndex}
-                  >
-                    {true ? (
-                      <p.Stack
-                        as={"div"}
-                        hasGap={true}
+                    throw e;
+                  }
+                })() ?? []
+              ).map((currentItem, currentIndex) => (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__dYgeh, {
+                    [sty.freeBoxcomponent__switch__dYgeh6Unwa]: hasVariant(
+                      $state,
+                      "component",
+                      "_switch"
+                    ),
+                    [sty.freeBoxcomponent_button__dYgehBEp92]: hasVariant(
+                      $state,
+                      "component",
+                      "button"
+                    ),
+                    [sty.freeBoxcomponent_checkbox__dYgehIwRen]: hasVariant(
+                      $state,
+                      "component",
+                      "checkbox"
+                    )
+                  })}
+                  key={currentIndex}
+                >
+                  {true ? (
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xdxNx,
+                        {
+                          [sty.freeBoxcomponent_button__xdxNxbEp92]: hasVariant(
+                            $state,
+                            "component",
+                            "button"
+                          )
+                        }
+                      )}
+                    >
+                      <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__xdxNx
+                          projectcss.__wab_text,
+                          sty.text__tsFFu,
+                          {
+                            [sty.textcomponent__switch__tsFFu6Unwa]: hasVariant(
+                              $state,
+                              "component",
+                              "_switch"
+                            ),
+                            [sty.textcomponent_avatar__tsFFux9J7I]: hasVariant(
+                              $state,
+                              "component",
+                              "avatar"
+                            ),
+                            [sty.textcomponent_checkbox__tsFFuIwRen]:
+                              hasVariant($state, "component", "checkbox")
+                          }
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__tsFFu,
-                            {
-                              [sty.textcomponent_avatar__tsFFux9J7I]:
-                                hasVariant($state, "component", "avatar")
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return Object.keys(currentItem)[0] + ":";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "name:";
+                              }
+                              throw e;
                             }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return Object.keys(currentItem)[0];
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "name:";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        {(() => {
-                          const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.radioGroup,
-                              {
-                                [sty.radioGroupcomponent__switch]: hasVariant(
-                                  $state,
-                                  "component",
-                                  "_switch"
-                                ),
-                                [sty.radioGroupcomponent_avatar]: hasVariant(
-                                  $state,
-                                  "component",
-                                  "avatar"
-                                ),
-                                [sty.radioGroupcomponent_button]: hasVariant(
-                                  $state,
-                                  "component",
-                                  "button"
-                                )
-                              }
-                            ),
-                            onChange: async (...eventArgs: any) => {
-                              p.generateStateOnChangeProp($state, [
-                                "radioGroup",
-                                currentIndex,
-                                "value"
-                              ]).apply(null, eventArgs);
-                              (async value => {
-                                const $steps = {};
-                                $steps["runCode"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: __wrapUserFunction(
-                                          {
-                                            type: "InteractionArgLoc",
-                                            actionName: "customFunction",
-                                            interactionUuid: "Q3isEsKg0uX9",
-                                            componentUuid: "OliqYognCxZh",
-                                            argName: "customFunction"
-                                          },
-                                          () => async () => {
-                                            return ($props.data[currentIndex][
-                                              Object.keys(
-                                                $props.data[currentIndex]
-                                              )[0]
-                                            ].currentValue = value);
-                                          }
-                                        )
-                                      };
-                                      return __wrapUserFunction(
-                                        {
-                                          type: "InteractionLoc",
-                                          actionName: "customFunction",
-                                          interactionUuid: "Q3isEsKg0uX9",
-                                          componentUuid: "OliqYognCxZh"
-                                        },
-                                        () =>
-                                          (({ customFunction }) => {
-                                            return customFunction();
-                                          })?.apply(null, [actionArgs]),
-                                        actionArgs
-                                      );
-                                    })()
-                                  : undefined;
-                                if (
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await __wrapUserPromise(
-                                    {
-                                      type: "InteractionLoc",
-                                      actionName: "customFunction",
-                                      interactionUuid: "Q3isEsKg0uX9",
-                                      componentUuid: "OliqYognCxZh"
-                                    },
-                                    $steps["runCode"]
-                                  );
-                                }
-                              }).apply(null, eventArgs);
-                            },
-                            optionType: "button" as const,
-                            options: (() => {
-                              try {
-                                return currentItem[Object.keys(currentItem)[0]]
-                                  .propValues;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [
-                                    { value: "option1", label: "Option 1" },
-                                    { value: "option2", label: "Option 2" }
-                                  ];
-                                }
-                                throw e;
-                              }
-                            })(),
-                            value: p.generateStateValueProp($state, [
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      {(() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.radioGroup,
+                            {
+                              [sty.radioGroupcomponent__switch]: hasVariant(
+                                $state,
+                                "component",
+                                "_switch"
+                              ),
+                              [sty.radioGroupcomponent_avatar]: hasVariant(
+                                $state,
+                                "component",
+                                "avatar"
+                              ),
+                              [sty.radioGroupcomponent_button]: hasVariant(
+                                $state,
+                                "component",
+                                "button"
+                              )
+                            }
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            p.generateStateOnChangeProp($state, [
                               "radioGroup",
                               currentIndex,
                               "value"
-                            ])
-                          };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "value",
-                                plasmicStateName: "radioGroup[].value"
-                              }
-                            ],
-                            [currentIndex],
-                            undefined ?? {},
-                            child$Props
-                          );
-                          p.initializePlasmicStates(
-                            $state,
-                            [
-                              {
-                                name: "radioGroup[].value",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  undefined
-                              }
-                            ],
-                            [currentIndex]
-                          );
-                          return (
-                            <AntdRadioGroup
-                              data-plasmic-name={"radioGroup"}
-                              data-plasmic-override={overrides.radioGroup}
-                              {...child$Props}
-                            >
-                              <AntdRadio
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.radio__sq48,
+                            ]).apply(null, eventArgs);
+                            (async value => {
+                              const $steps = {};
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: __wrapUserFunction(
+                                        {
+                                          type: "InteractionArgLoc",
+                                          actionName: "customFunction",
+                                          interactionUuid: "Q3isEsKg0uX9",
+                                          componentUuid: "OliqYognCxZh",
+                                          argName: "customFunction"
+                                        },
+                                        () => async () => {
+                                          return ($props.data[currentIndex][
+                                            Object.keys(
+                                              $props.data[currentIndex]
+                                            )[0]
+                                          ].currentValue = value);
+                                        }
+                                      )
+                                    };
+                                    return __wrapUserFunction(
+                                      {
+                                        type: "InteractionLoc",
+                                        actionName: "customFunction",
+                                        interactionUuid: "Q3isEsKg0uX9",
+                                        componentUuid: "OliqYognCxZh"
+                                      },
+                                      () =>
+                                        (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]),
+                                      actionArgs
+                                    );
+                                  })()
+                                : undefined;
+                              if (
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await __wrapUserPromise(
                                   {
-                                    [sty.radiocomponent_avatar__sq48X9J7I]:
-                                      hasVariant($state, "component", "avatar")
-                                  }
-                                )}
-                                value={"op1" as const}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__rL3Yn
-                                  )}
-                                >
-                                  {"Option 1"}
-                                </div>
-                              </AntdRadio>
-                              <AntdRadio
+                                    type: "InteractionLoc",
+                                    actionName: "customFunction",
+                                    interactionUuid: "Q3isEsKg0uX9",
+                                    componentUuid: "OliqYognCxZh"
+                                  },
+                                  $steps["runCode"]
+                                );
+                              }
+                            }).apply(null, eventArgs);
+                          },
+                          optionType: "button" as const,
+                          options: (() => {
+                            try {
+                              return currentItem[Object.keys(currentItem)[0]]
+                                .propValues;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [
+                                  { value: "option1", label: "Option 1" },
+                                  { value: "option2", label: "Option 2" }
+                                ];
+                              }
+                              throw e;
+                            }
+                          })(),
+                          value: p.generateStateValueProp($state, [
+                            "radioGroup",
+                            currentIndex,
+                            "value"
+                          ])
+                        };
+                        p.initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "radioGroup[].value"
+                            }
+                          ],
+                          [currentIndex],
+                          undefined ?? {},
+                          child$Props
+                        );
+                        p.initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "radioGroup[].value",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                undefined
+                            }
+                          ],
+                          [currentIndex]
+                        );
+                        return (
+                          <AntdRadioGroup
+                            data-plasmic-name={"radioGroup"}
+                            data-plasmic-override={overrides.radioGroup}
+                            {...child$Props}
+                          >
+                            <AntdRadio
+                              className={classNames(
+                                "__wab_instance",
+                                sty.radio__sq48,
+                                {
+                                  [sty.radiocomponent_avatar__sq48X9J7I]:
+                                    hasVariant($state, "component", "avatar")
+                                }
+                              )}
+                              value={"op1" as const}
+                            >
+                              <div
                                 className={classNames(
-                                  "__wab_instance",
-                                  sty.radio__qDEa
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__rL3Yn
                                 )}
-                                value={"op2" as const}
                               >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__c6KQv
-                                  )}
-                                >
-                                  {"Option 2"}
-                                </div>
-                              </AntdRadio>
-                            </AntdRadioGroup>
-                          );
-                        })()}
-                      </p.Stack>
-                    ) : null}
-                  </div>
-                ))
-              : null}
-          </div>
-        ) : null}
+                                {"Option 1"}
+                              </div>
+                            </AntdRadio>
+                            <AntdRadio
+                              className={classNames(
+                                "__wab_instance",
+                                sty.radio__qDEa
+                              )}
+                              value={"op2" as const}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__c6KQv
+                                )}
+                              >
+                                {"Option 2"}
+                              </div>
+                            </AntdRadio>
+                          </AntdRadioGroup>
+                        );
+                      })()}
+                    </p.Stack>
+                  ) : null}
+                </div>
+              ))
+            : null}
+        </div>
         <section
           data-plasmic-name={"section"}
           data-plasmic-override={overrides.section}

@@ -326,6 +326,19 @@
           "cssFilePath": "plasmic/blank_website_mobile_first/PlasmicComp.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "KSlN7_uDUOFX",
+          "name": "ListItem",
+          "type": "managed",
+          "projectId": "ec2EGmqeZaBv6iqjTrAK9W",
+          "renderModuleFilePath": "plasmic/antdcomp/PlasmicListItem.tsx",
+          "importSpec": {
+            "modulePath": "ListItem.tsx"
+          },
+          "cssFilePath": "plasmic/antdcomp/PlasmicListItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [],

@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  cursor: pointer;
+  min-width: 0;
+  padding: 2px 0px;
+}
+.freeBox {
+  display: flex;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  min-width: 0;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+.freeBoxcurrent {
+  background: #e6f4ff;
+}
+.root:hover .freeBox {
+  background: #0000000f;
+}
+.rootcurrent:hover .freeBoxcurrent {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #e6f4ff;
+  flex-direction: row;
+  box-shadow: inset 0px 0px 0px 1px #1677ff80;
+  min-width: 0;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  color: #000000e0;
+  min-width: 0;
+}
+.textcurrent {
+  color: #1677ff;
+}
+.rootcurrent:hover .textcurrent {
+  color: #1677ff;
+}
