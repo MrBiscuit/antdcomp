@@ -175,7 +175,25 @@ function PlasmicHome__RenderFunc(props: {
                 currentValue: "default"
               }
             },
-            { src: { propType: "string", propValues: [], currentValue: "-" } },
+            {
+              src: {
+                propType: "string",
+                propValues: [
+                  { label: "no image", value: "-" },
+                  {
+                    label: "svg",
+                    value:
+                      "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                  },
+                  {
+                    label: "png",
+                    value:
+                      "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"
+                  }
+                ],
+                currentValue: "-"
+              }
+            },
             {
               letters: {
                 propType: "string",

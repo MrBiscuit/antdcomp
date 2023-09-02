@@ -378,7 +378,11 @@ function PlasmicComp__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__tsFFu
+                            sty.text__tsFFu,
+                            {
+                              [sty.textcomponent_avatar__tsFFux9J7I]:
+                                hasVariant($state, "component", "avatar")
+                            }
                           )}
                         >
                           <React.Fragment>
@@ -407,6 +411,11 @@ function PlasmicComp__RenderFunc(props: {
                                   $state,
                                   "component",
                                   "_switch"
+                                ),
+                                [sty.radioGroupcomponent_avatar]: hasVariant(
+                                  $state,
+                                  "component",
+                                  "avatar"
                                 ),
                                 [sty.radioGroupcomponent_button]: hasVariant(
                                   $state,
@@ -530,7 +539,11 @@ function PlasmicComp__RenderFunc(props: {
                               <AntdRadio
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.radio__sq48
+                                  sty.radio__sq48,
+                                  {
+                                    [sty.radiocomponent_avatar__sq48X9J7I]:
+                                      hasVariant($state, "component", "avatar")
+                                  }
                                 )}
                                 value={"op1" as const}
                               >
@@ -1016,6 +1029,22 @@ function PlasmicComp__RenderFunc(props: {
                 try {
                   return (() => {
                     return $props.data.find(prop => prop.size)?.size
+                      ?.currentValue;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              src={(() => {
+                try {
+                  return (() => {
+                    return $props.data.find(prop => prop.src)?.src
                       ?.currentValue;
                   })();
                 } catch (e) {
