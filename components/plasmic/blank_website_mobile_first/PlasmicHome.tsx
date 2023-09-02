@@ -189,6 +189,11 @@ function PlasmicHome__RenderFunc(props: {
                     label: "png",
                     value:
                       "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"
+                  },
+                  {
+                    label: "png alt",
+                    value:
+                      "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                   }
                 ],
                 currentValue: "-"
