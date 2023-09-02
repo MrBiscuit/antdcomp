@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -291,12 +291,13 @@
             "importPath": "@plasmicpkgs/antd5/skinny/registerTree"
           }
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ec2EGmqeZaBv6iqjTrAK9W",
       "projectApiToken": "tmWaGx9Mk6l6JMUYjbYCoCNwJEbZwFg0zIeFdLrRywdI3iXvJ75t3Km1sHPd9GEnW8PjQbmceABIO01O7yw",
-      "projectName": "Blank website (mobile-first)",
+      "projectName": "antdcomp",
       "version": "latest",
       "cssFilePath": "plasmic/blank_website_mobile_first/plasmic_blank_website_mobile_first.module.css",
       "components": [
@@ -343,6 +344,56 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "40zLyi3QJGmp",
+          "name": "Switch",
+          "displayName": "Switch",
+          "componentImportPath": "antd"
+        },
+        {
+          "id": "mWsHmYWk-vCp",
+          "name": "SideModal",
+          "displayName": "SideModal",
+          "componentImportPath": "./pages/plasmic-host"
+        },
+        {
+          "id": "EFbBT2lZVjKE",
+          "name": "Divider",
+          "displayName": "Divider",
+          "componentImportPath": "antd"
+        },
+        {
+          "id": "9SbWfVpqJCVx",
+          "name": "Breadcrumb",
+          "displayName": "Breadcrumb",
+          "componentImportPath": "antd"
+        },
+        {
+          "id": "obn1ze3KDtRX",
+          "name": "Alert",
+          "displayName": "Alert",
+          "componentImportPath": "antd"
+        }
+      ]
+    },
+    {
+      "projectId": "8PtdGodUbexNYgkuyBUcWu",
+      "projectApiToken": "34o5R5KswluuZ4sD83F88oQrcLWsNNeUpCptQ8Okf4hYqgjnHnX2idGAlhtB7WWQQelNAInf5XFazR1cGw",
+      "projectName": "plasmic-embed-css",
+      "version": "3.18.0",
+      "cssFilePath": "plasmic/plasmic_embed_css/plasmic_plasmic_embed_css.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_embed_css/PlasmicGlobalContextsProvider.tsx",
+      "codeComponents": [
+        {
+          "id": "qF0uJxFztB",
+          "name": "EmbedCss",
+          "displayName": "global-embed-css",
+          "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
       ]
     }

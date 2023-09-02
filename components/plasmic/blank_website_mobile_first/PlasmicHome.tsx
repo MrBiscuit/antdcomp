@@ -223,20 +223,6 @@ function PlasmicHome__RenderFunc(props: {
               }
             },
             {
-              checkedChildren: {
-                propType: "ReactNode",
-                propValues: [],
-                currentValue: "-"
-              }
-            },
-            {
-              className: {
-                propType: "string",
-                propValues: [],
-                currentValue: "-"
-              }
-            },
-            {
               defaultChecked: {
                 propType: "boolean",
                 propValues: ["true", "false"],
@@ -262,6 +248,68 @@ function PlasmicHome__RenderFunc(props: {
                 propType: "string",
                 propValues: ["default", "small"],
                 currentValue: "default"
+              }
+            }
+          ],
+          divider: [
+            {
+              dashed: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              orientation: {
+                propType: "string",
+                propValues: ["left", "right", "center"],
+                currentValue: "center"
+              }
+            },
+            {
+              plain: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "true"
+              }
+            },
+            {
+              type: {
+                propType: "string",
+                propValues: ["horizontal", "vertical"],
+                currentValue: "horizontal"
+              }
+            }
+          ],
+          breadcrumb: [
+            {
+              separator: {
+                propType: "string",
+                propValues: ["/", ">", ":", "\u2192"],
+                currentValue: "/"
+              }
+            }
+          ],
+          alert: [
+            {
+              banner: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              showIcon: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              type: {
+                propType: "string",
+                propValues: ["success", "info", "warning", "error"],
+                currentValue: "info"
               }
             }
           ]

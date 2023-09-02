@@ -39,9 +39,12 @@ import {
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio"; // plasmic-import: PZQhrvIGy1/codeComponent
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio"; // plasmic-import: -CXVV9tXtP/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
-import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch"; // plasmic-import: -gkBqPikhk/codeComponent
+import { Switch } from "antd"; // plasmic-import: 40zLyi3QJGmp/codeComponent
 import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox"; // plasmic-import: aFHKFWNvs7/codeComponent
 import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar"; // plasmic-import: nqcsn8n56U/codeComponent
+import { Divider } from "antd"; // plasmic-import: EFbBT2lZVjKE/codeComponent
+import { Breadcrumb } from "antd"; // plasmic-import: 9SbWfVpqJCVx/codeComponent
+import { Alert } from "antd"; // plasmic-import: obn1ze3KDtRX/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -52,10 +55,25 @@ import sty from "./PlasmicComp.module.css"; // plasmic-import: OliqYognCxZh/css
 createPlasmicElementProxy;
 
 export type PlasmicComp__VariantMembers = {
-  component: "button" | "avatar" | "checkbox" | "_switch";
+  component:
+    | "button"
+    | "avatar"
+    | "checkbox"
+    | "_switch"
+    | "divider"
+    | "breadcrumb"
+    | "alert";
 };
 export type PlasmicComp__VariantsArgs = {
-  component?: SingleChoiceArg<"button" | "avatar" | "checkbox" | "_switch">;
+  component?: SingleChoiceArg<
+    | "button"
+    | "avatar"
+    | "checkbox"
+    | "_switch"
+    | "divider"
+    | "breadcrumb"
+    | "alert"
+  >;
 };
 type VariantPropType = keyof PlasmicComp__VariantsArgs;
 export const PlasmicComp__VariantProps = new Array<VariantPropType>(
@@ -73,14 +91,25 @@ export type PlasmicComp__OverridesType = {
   radioGroup?: p.Flex<typeof AntdRadioGroup>;
   section?: p.Flex<"section">;
   button?: p.Flex<typeof AntdButton>;
-  _switch?: p.Flex<typeof AntdSwitch>;
+  _switch?: p.Flex<typeof Switch>;
   checkbox?: p.Flex<typeof AntdCheckbox>;
   avatar?: p.Flex<typeof AntdAvatar>;
+  divider?: p.Flex<typeof Divider>;
+  breadcrumb?: p.Flex<typeof Breadcrumb>;
+  alert?: p.Flex<typeof Alert>;
 };
 
 export interface DefaultCompProps {
   data?: any;
-  component?: SingleChoiceArg<"button" | "avatar" | "checkbox" | "_switch">;
+  component?: SingleChoiceArg<
+    | "button"
+    | "avatar"
+    | "checkbox"
+    | "_switch"
+    | "divider"
+    | "breadcrumb"
+    | "alert"
+  >;
   className?: string;
 }
 
@@ -216,28 +245,6 @@ function PlasmicComp__RenderFunc(props: {
       },
       {
         path: "checkbox.checked",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                $props.data.find(prop => prop.checked)?.checked
-                  ?.currentValue === "true"
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "_switch.checked",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
@@ -396,6 +403,11 @@ function PlasmicComp__RenderFunc(props: {
                               "__wab_instance",
                               sty.radioGroup,
                               {
+                                [sty.radioGroupcomponent__switch]: hasVariant(
+                                  $state,
+                                  "component",
+                                  "_switch"
+                                ),
                                 [sty.radioGroupcomponent_button]: hasVariant(
                                   $state,
                                   "component",
@@ -568,10 +580,20 @@ function PlasmicComp__RenderFunc(props: {
               "component",
               "_switch"
             ),
+            [sty.sectioncomponent_alert]: hasVariant(
+              $state,
+              "component",
+              "alert"
+            ),
             [sty.sectioncomponent_avatar]: hasVariant(
               $state,
               "component",
               "avatar"
+            ),
+            [sty.sectioncomponent_breadcrumb]: hasVariant(
+              $state,
+              "component",
+              "breadcrumb"
             ),
             [sty.sectioncomponent_button]: hasVariant(
               $state,
@@ -582,6 +604,11 @@ function PlasmicComp__RenderFunc(props: {
               $state,
               "component",
               "checkbox"
+            ),
+            [sty.sectioncomponent_divider]: hasVariant(
+              $state,
+              "component",
+              "divider"
             )
           })}
         >
@@ -772,18 +799,11 @@ function PlasmicComp__RenderFunc(props: {
             </AntdButton>
           ) : null}
           {(hasVariant($state, "component", "_switch") ? true : false) ? (
-            <AntdSwitch
+            <Switch
               data-plasmic-name={"_switch"}
               data-plasmic-override={overrides._switch}
-              checked={p.generateStateValueProp($state, ["_switch", "checked"])}
-              className={classNames("__wab_instance", sty._switch, {
-                [sty._switchcomponent__switch]: hasVariant(
-                  $state,
-                  "component",
-                  "_switch"
-                )
-              })}
-              defaultChecked={(() => {
+              autoFocus={false}
+              checked={(() => {
                 try {
                   return (
                     $props.data.find(prop => prop.checked)?.checked
@@ -799,6 +819,13 @@ function PlasmicComp__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              className={classNames("__wab_instance", sty._switch, {
+                [sty._switchcomponent__switch]: hasVariant(
+                  $state,
+                  "component",
+                  "_switch"
+                )
+              })}
               disabled={(() => {
                 try {
                   return (
@@ -815,10 +842,36 @@ function PlasmicComp__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              onChange={p.generateStateOnChangeProp($state, [
-                "_switch",
-                "checked"
-              ])}
+              loading={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.loading)?.loading
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              size={(() => {
+                try {
+                  return $props.data.find(prop => prop.size)?.size
+                    ?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "default";
+                  }
+                  throw e;
+                }
+              })()}
             />
           ) : null}
           {(hasVariant($state, "component", "checkbox") ? true : false) ? (
@@ -977,6 +1030,210 @@ function PlasmicComp__RenderFunc(props: {
               })()}
             />
           ) : null}
+          {(hasVariant($state, "component", "divider") ? true : true) ? (
+            <Divider
+              data-plasmic-name={"divider"}
+              data-plasmic-override={overrides.divider}
+              className={classNames("__wab_instance", sty.divider, {
+                [sty.dividercomponent_divider]: hasVariant(
+                  $state,
+                  "component",
+                  "divider"
+                )
+              })}
+              dashed={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.dashed)?.dashed
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              orientation={(() => {
+                try {
+                  return $props.data.find(prop => prop.orientation)?.orientation
+                    ?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "center";
+                  }
+                  throw e;
+                }
+              })()}
+              plain={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.plain)?.plain
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
+              type={(() => {
+                try {
+                  return $props.data.find(prop => prop.type)?.type
+                    ?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "horizontal";
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
+          {(hasVariant($state, "component", "breadcrumb") ? true : true) ? (
+            <Breadcrumb
+              data-plasmic-name={"breadcrumb"}
+              data-plasmic-override={overrides.breadcrumb}
+              className={classNames("__wab_instance", sty.breadcrumb, {
+                [sty.breadcrumbcomponent_breadcrumb]: hasVariant(
+                  $state,
+                  "component",
+                  "breadcrumb"
+                )
+              })}
+              items={[
+                { title: "Home" },
+                { title: "Application Center", href: "" },
+                { title: "Application List", href: "" },
+                { title: "An Application" }
+              ]}
+              separator={(() => {
+                try {
+                  return $props.data.find(prop => prop.separator)?.separator
+                    ?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "/";
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
+          {(hasVariant($state, "component", "alert") ? true : true) ? (
+            <Alert
+              data-plasmic-name={"alert"}
+              data-plasmic-override={overrides.alert}
+              banner={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.banner)?.banner
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              className={classNames("__wab_instance", sty.alert, {
+                [sty.alertcomponent_alert]: hasVariant(
+                  $state,
+                  "component",
+                  "alert"
+                )
+              })}
+              closeIcon={true}
+              description={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__a8P,
+                    {
+                      [sty.textcomponent_alert__a8Pradbm]: hasVariant(
+                        $state,
+                        "component",
+                        "alert"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "Additional description and information about copywriting.\n"
+                  }
+                </div>
+              }
+              message={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___7Ewz,
+                    {
+                      [sty.textcomponent_alert___7EwzRadbm]: hasVariant(
+                        $state,
+                        "component",
+                        "alert"
+                      )
+                    }
+                  )}
+                >
+                  {"Alert Message"}
+                </div>
+              }
+              showIcon={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.showIcon)?.showIcon
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              type={(() => {
+                try {
+                  return $props.data.find(prop => prop.type)?.type
+                    ?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "info";
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
         </section>
       </div>
     ) : null
@@ -991,14 +1248,29 @@ const PlasmicDescendants = {
     "button",
     "_switch",
     "checkbox",
-    "avatar"
+    "avatar",
+    "divider",
+    "breadcrumb",
+    "alert"
   ],
   radioGroup: ["radioGroup"],
-  section: ["section", "button", "_switch", "checkbox", "avatar"],
+  section: [
+    "section",
+    "button",
+    "_switch",
+    "checkbox",
+    "avatar",
+    "divider",
+    "breadcrumb",
+    "alert"
+  ],
   button: ["button"],
   _switch: ["_switch"],
   checkbox: ["checkbox"],
-  avatar: ["avatar"]
+  avatar: ["avatar"],
+  divider: ["divider"],
+  breadcrumb: ["breadcrumb"],
+  alert: ["alert"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1008,9 +1280,12 @@ type NodeDefaultElementType = {
   radioGroup: typeof AntdRadioGroup;
   section: "section";
   button: typeof AntdButton;
-  _switch: typeof AntdSwitch;
+  _switch: typeof Switch;
   checkbox: typeof AntdCheckbox;
   avatar: typeof AntdAvatar;
+  divider: typeof Divider;
+  breadcrumb: typeof Breadcrumb;
+  alert: typeof Alert;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1079,6 +1354,9 @@ export const PlasmicComp = Object.assign(
     _switch: makeNodeComponent("_switch"),
     checkbox: makeNodeComponent("checkbox"),
     avatar: makeNodeComponent("avatar"),
+    divider: makeNodeComponent("divider"),
+    breadcrumb: makeNodeComponent("breadcrumb"),
+    alert: makeNodeComponent("alert"),
 
     // Metadata about props expected for PlasmicComp
     internalVariantProps: PlasmicComp__VariantProps,
