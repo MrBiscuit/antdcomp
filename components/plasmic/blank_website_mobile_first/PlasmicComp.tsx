@@ -861,13 +861,42 @@ function PlasmicComp__RenderFunc(props: {
             <Switch
               data-plasmic-name={"_switch"}
               data-plasmic-override={overrides._switch}
-              autoFocus={false}
+              autoFocus={(() => {
+                try {
+                  return (
+                    $props.data.find(prop => prop.autoFocus)?.autoFocus
+                      ?.currentValue === "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
               checked={(() => {
                 try {
                   return (
                     $props.data.find(prop => prop.checked)?.checked
                       ?.currentValue === "true"
                   );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              checkedChildren={(() => {
+                try {
+                  return $props.data.find(prop => prop.checkedChildren)
+                    ?.checkedChildren?.currentValue;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -927,6 +956,20 @@ function PlasmicComp__RenderFunc(props: {
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
                     return "default";
+                  }
+                  throw e;
+                }
+              })()}
+              unCheckedChildren={(() => {
+                try {
+                  return $props.data.find(prop => prop.unCheckedChildren)
+                    ?.unCheckedChildren?.currentValue;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
                   }
                   throw e;
                 }
@@ -1342,6 +1385,16 @@ function PlasmicComp__RenderFunc(props: {
           {(hasVariant($state, "component", "slider") ? true : true) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__xLeWx, {
+                [sty.freeBoxcomponent__switch__xLeWx6Unwa]: hasVariant(
+                  $state,
+                  "component",
+                  "_switch"
+                ),
+                [sty.freeBoxcomponent_alert__xLeWxradbm]: hasVariant(
+                  $state,
+                  "component",
+                  "alert"
+                ),
                 [sty.freeBoxcomponent_slider__xLeWx0I9S]: hasVariant(
                   $state,
                   "component",

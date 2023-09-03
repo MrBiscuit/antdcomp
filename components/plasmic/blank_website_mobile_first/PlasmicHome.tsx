@@ -275,6 +275,18 @@ function PlasmicHome__RenderFunc(props: {
                 propValues: ["default", "small"],
                 currentValue: "default"
               }
+            },
+            {
+              checkedChildren: {
+                propType: "string",
+                propValues: ["", "\u5f00\u542f", "On", "1"]
+              }
+            },
+            {
+              unCheckedChildren: {
+                propType: "string",
+                propValues: ["", "\u5173\u95ed", "Off", "0"]
+              }
             }
           ],
           divider: [
