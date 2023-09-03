@@ -387,6 +387,12 @@
           "name": "Alert",
           "displayName": "Alert",
           "componentImportPath": "antd"
+        },
+        {
+          "id": "32r1MXrNqQQF",
+          "name": "Slider",
+          "displayName": "Slider",
+          "componentImportPath": "antd"
         }
       ]
     },

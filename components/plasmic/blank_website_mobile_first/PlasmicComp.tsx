@@ -45,6 +45,7 @@ import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar"; // plasmi
 import { Divider } from "antd"; // plasmic-import: EFbBT2lZVjKE/codeComponent
 import { Breadcrumb } from "antd"; // plasmic-import: 9SbWfVpqJCVx/codeComponent
 import { Alert } from "antd"; // plasmic-import: obn1ze3KDtRX/codeComponent
+import { Slider } from "antd"; // plasmic-import: 32r1MXrNqQQF/codeComponent
 
 import { useScreenVariants as useScreenVariants_92Lg6K3RJGs } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: _92lg6k3rJGs/globalVariant
 
@@ -64,7 +65,8 @@ export type PlasmicComp__VariantMembers = {
     | "_switch"
     | "divider"
     | "breadcrumb"
-    | "alert";
+    | "alert"
+    | "slider";
 };
 export type PlasmicComp__VariantsArgs = {
   component?: SingleChoiceArg<
@@ -75,6 +77,7 @@ export type PlasmicComp__VariantsArgs = {
     | "divider"
     | "breadcrumb"
     | "alert"
+    | "slider"
   >;
 };
 type VariantPropType = keyof PlasmicComp__VariantsArgs;
@@ -99,6 +102,7 @@ export type PlasmicComp__OverridesType = {
   divider?: p.Flex<typeof Divider>;
   breadcrumb?: p.Flex<typeof Breadcrumb>;
   alert?: p.Flex<typeof Alert>;
+  slider?: p.Flex<typeof Slider>;
 };
 
 export interface DefaultCompProps {
@@ -111,6 +115,7 @@ export interface DefaultCompProps {
     | "divider"
     | "breadcrumb"
     | "alert"
+    | "slider"
   >;
   className?: string;
 }
@@ -327,10 +332,20 @@ function PlasmicComp__RenderFunc(props: {
               "component",
               "_switch"
             ),
+            [sty.freeBoxcomponent_breadcrumb__jxqXv48Hc7]: hasVariant(
+              $state,
+              "component",
+              "breadcrumb"
+            ),
             [sty.freeBoxcomponent_checkbox__jxqXviwRen]: hasVariant(
               $state,
               "component",
               "checkbox"
+            ),
+            [sty.freeBoxcomponent_divider__jxqXvGpijB]: hasVariant(
+              $state,
+              "component",
+              "divider"
             )
           })}
         >
@@ -403,7 +418,12 @@ function PlasmicComp__RenderFunc(props: {
                               "avatar"
                             ),
                             [sty.textcomponent_checkbox__tsFFuIwRen]:
-                              hasVariant($state, "component", "checkbox")
+                              hasVariant($state, "component", "checkbox"),
+                            [sty.textcomponent_slider__tsFFu0I9S]: hasVariant(
+                              $state,
+                              "component",
+                              "slider"
+                            )
                           }
                         )}
                       >
@@ -643,6 +663,11 @@ function PlasmicComp__RenderFunc(props: {
               $state,
               "component",
               "divider"
+            ),
+            [sty.sectioncomponent_slider]: hasVariant(
+              $state,
+              "component",
+              "slider"
             )
           })}
         >
@@ -1012,6 +1037,11 @@ function PlasmicComp__RenderFunc(props: {
                   $state,
                   "component",
                   "button"
+                ),
+                [sty.avatarcomponent_slider]: hasVariant(
+                  $state,
+                  "component",
+                  "slider"
                 )
               })}
               letters={(() => {
@@ -1080,15 +1110,25 @@ function PlasmicComp__RenderFunc(props: {
               })()}
             />
           ) : null}
-          {(hasVariant($state, "component", "divider") ? true : true) ? (
+          {(hasVariant($state, "component", "divider") ? true : false) ? (
             <Divider
               data-plasmic-name={"divider"}
               data-plasmic-override={overrides.divider}
               className={classNames("__wab_instance", sty.divider, {
+                [sty.dividercomponent_alert]: hasVariant(
+                  $state,
+                  "component",
+                  "alert"
+                ),
                 [sty.dividercomponent_divider]: hasVariant(
                   $state,
                   "component",
                   "divider"
+                ),
+                [sty.dividercomponent_slider]: hasVariant(
+                  $state,
+                  "component",
+                  "slider"
                 )
               })}
               dashed={(() => {
@@ -1153,15 +1193,25 @@ function PlasmicComp__RenderFunc(props: {
               })()}
             />
           ) : null}
-          {(hasVariant($state, "component", "breadcrumb") ? true : true) ? (
+          {(hasVariant($state, "component", "breadcrumb") ? true : false) ? (
             <Breadcrumb
               data-plasmic-name={"breadcrumb"}
               data-plasmic-override={overrides.breadcrumb}
               className={classNames("__wab_instance", sty.breadcrumb, {
+                [sty.breadcrumbcomponent_alert]: hasVariant(
+                  $state,
+                  "component",
+                  "alert"
+                ),
                 [sty.breadcrumbcomponent_breadcrumb]: hasVariant(
                   $state,
                   "component",
                   "breadcrumb"
+                ),
+                [sty.breadcrumbcomponent_slider]: hasVariant(
+                  $state,
+                  "component",
+                  "slider"
                 )
               })}
               items={[
@@ -1186,7 +1236,7 @@ function PlasmicComp__RenderFunc(props: {
               })()}
             />
           ) : null}
-          {(hasVariant($state, "component", "alert") ? true : true) ? (
+          {(hasVariant($state, "component", "alert") ? true : false) ? (
             <Alert
               data-plasmic-name={"alert"}
               data-plasmic-override={overrides.alert}
@@ -1211,6 +1261,11 @@ function PlasmicComp__RenderFunc(props: {
                   $state,
                   "component",
                   "alert"
+                ),
+                [sty.alertcomponent_slider]: hasVariant(
+                  $state,
+                  "component",
+                  "slider"
                 )
               })}
               closeIcon={true}
@@ -1284,6 +1339,266 @@ function PlasmicComp__RenderFunc(props: {
               })()}
             />
           ) : null}
+          {(hasVariant($state, "component", "slider") ? true : true) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__xLeWx, {
+                [sty.freeBoxcomponent_slider__xLeWx0I9S]: hasVariant(
+                  $state,
+                  "component",
+                  "slider"
+                )
+              })}
+            >
+              {(hasVariant($state, "component", "slider") ? true : false) ? (
+                <Slider
+                  data-plasmic-name={"slider"}
+                  data-plasmic-override={overrides.slider}
+                  autoAdjustOverflow={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.autoAdjustOverflow)
+                                ?.autoAdjustOverflow?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  }
+                  autoFocus={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.autoFocus)
+                                ?.autoFocus?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                  className={classNames("__wab_instance", sty.slider, {
+                    [sty.slidercomponent_slider]: hasVariant(
+                      $state,
+                      "component",
+                      "slider"
+                    )
+                  })}
+                  defaultValue={[0, 0]}
+                  disabled={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.disabled)?.disabled
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                  dots={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.dots)?.dots
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                  included={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.included)?.included
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  }
+                  keyboard={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.keyboard)?.keyboard
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  }
+                  max={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return $props.data.find(prop => prop.max)?.max
+                              ?.currentValue;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 100;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (100 as const)
+                  }
+                  min={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return $props.data.find(prop => prop.mix)?.mix
+                              ?.currentValue;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 0;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (0 as const)
+                  }
+                  range={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.range)?.range
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                  reverse={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.reverse)?.reverse
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                  step={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return $props.data.find(prop => prop.step)?.step
+                              ?.currentValue;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return 1;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (1 as const)
+                  }
+                  vertical={
+                    hasVariant($state, "component", "slider")
+                      ? (() => {
+                          try {
+                            return (
+                              $props.data.find(prop => prop.vertical)?.vertical
+                                ?.currentValue === "true"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : false
+                  }
+                />
+              ) : null}
+            </div>
+          ) : null}
         </section>
       </div>
     ) : null
@@ -1301,7 +1616,8 @@ const PlasmicDescendants = {
     "avatar",
     "divider",
     "breadcrumb",
-    "alert"
+    "alert",
+    "slider"
   ],
   radioGroup: ["radioGroup"],
   section: [
@@ -1312,7 +1628,8 @@ const PlasmicDescendants = {
     "avatar",
     "divider",
     "breadcrumb",
-    "alert"
+    "alert",
+    "slider"
   ],
   button: ["button"],
   _switch: ["_switch"],
@@ -1320,7 +1637,8 @@ const PlasmicDescendants = {
   avatar: ["avatar"],
   divider: ["divider"],
   breadcrumb: ["breadcrumb"],
-  alert: ["alert"]
+  alert: ["alert"],
+  slider: ["slider"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1336,6 +1654,7 @@ type NodeDefaultElementType = {
   divider: typeof Divider;
   breadcrumb: typeof Breadcrumb;
   alert: typeof Alert;
+  slider: typeof Slider;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1407,6 +1726,7 @@ export const PlasmicComp = Object.assign(
     divider: makeNodeComponent("divider"),
     breadcrumb: makeNodeComponent("breadcrumb"),
     alert: makeNodeComponent("alert"),
+    slider: makeNodeComponent("slider"),
 
     // Metadata about props expected for PlasmicComp
     internalVariantProps: PlasmicComp__VariantProps,

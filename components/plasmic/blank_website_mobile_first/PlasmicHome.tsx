@@ -338,6 +338,92 @@ function PlasmicHome__RenderFunc(props: {
                 currentValue: "info"
               }
             }
+          ],
+          slider: [
+            {
+              autoAdjustOverflow: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "true"
+              }
+            },
+            {
+              autoFocus: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              disabled: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              keyboard: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "true"
+              }
+            },
+            {
+              dots: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              included: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "true"
+              }
+            },
+            {
+              max: {
+                propType: "number",
+                propValues: ["60", "80", "100"],
+                currentValue: "100"
+              }
+            },
+            {
+              min: {
+                propType: "number",
+                propValues: ["0", "20", "40"],
+                currentValue: "0"
+              }
+            },
+            {
+              range: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              reverse: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            },
+            {
+              step: {
+                propType: "number",
+                propValues: ["0.5", "1", "2", "4", "8"],
+                currentValue: "1"
+              }
+            },
+            {
+              vertical: {
+                propType: "boolean",
+                propValues: ["true", "false"],
+                currentValue: "false"
+              }
+            }
           ]
         })
       },
